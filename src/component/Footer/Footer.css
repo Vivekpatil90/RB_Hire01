@@ -61,6 +61,10 @@ body {
   justify-content: center;
   flex-wrap: wrap;
 }
+.hero-btns Link
+{
+  text-decoration: none;
+}
 
 .btn-primary {
   background: var(--primary-gold);
@@ -85,6 +89,7 @@ body {
   border-radius: 8px;
   cursor: pointer;
   transition: var(--transition);
+  text-decoration: none;
 }
 
 .btn-outline:hover {

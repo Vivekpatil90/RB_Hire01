@@ -17,8 +17,9 @@ const FooterPart = () => {
             <h1>Ready to Build Your Dream Career?</h1>
             <p>Partner with us to find the right talent faster and more efficiently. Let's build success together.</p>
             <div className="hero-btns">
-              <button className="btn-primary">Contact Us</button>
-              <button className="btn-outline">View Open Positions</button>
+              <Link  className="btn-primary" to='/contact'>Contact Us</Link>
+              
+              <Link className='btn-outline' to='/job'>View Open Position</Link>
             </div>
           </div>
 
