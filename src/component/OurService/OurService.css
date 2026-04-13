@@ -1,0 +1,94 @@
+:root {
+  --primary-gold: #c5a059;
+  --transition-speed: 0.5s;
+}
+
+.services-container {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+}
+
+.header h2 {
+  color: var(--primary-gold);
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.header p {
+  color: #666;
+  margin-bottom: 3rem;
+}
+
+.gallery {
+  display: flex;
+  gap: 1rem;
+  height: 450px;
+  width: 100%;
+}
+
+.card {
+  position: relative;
+  flex: 1; /* Default width */
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: flex var(--transition-speed) ease-in-out;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+  color: white;
+}
+
+/* Hover Effect: Increase width */
+.card.active {
+  flex: 3;
+}
+
+.card-content {
+  text-align: left;
+  z-index: 2;
+  width: 100%;
+}
+
+.card-content h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  white-space: nowrap;
+}
+
+.fade-in {
+  animation: fadeIn 0.4s forwards;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive: Stack vertically on small screens */
+@media (max-width: 768px) {
+  .gallery {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .card {
+    height: 150px;
+    flex: none;
+    width: 100%;
+  }
+  
+  .card.active {
+    height: 250px;
+    flex: none;
+  }
+}

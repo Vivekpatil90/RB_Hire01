@@ -1,0 +1,216 @@
+/* ── ServiceDetail.css ── */
+
+.sd-page {
+  font-family: 'Inter', sans-serif;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 2rem 4rem;
+  position: relative;
+  color: #333;
+}
+
+/* Back button */
+.sd-back-btn {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 38px;
+  height: 38px;
+  border: 1.5px solid #ccc;
+  background: #fff;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.sd-back-btn:hover {
+  background: #f5f5f5;
+  border-color: #aaa;
+}
+
+/* ── HERO ── */
+.sd-hero {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  padding-top: 1rem;
+}
+
+.sd-hero-text {
+  flex: 1;
+}
+
+.sd-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #c5a059;
+  margin-bottom: 1rem;
+}
+
+.sd-para {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 0.85rem;
+}
+
+.sd-contact-btn {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding: 0.6rem 1.4rem;
+  background: #c5a059;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.sd-contact-btn:hover {
+  background: #b08c44;
+}
+
+.sd-hero-img-wrap {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sd-hero-img {
+  width: 100%;
+  max-width: 420px;
+  height: 270px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* ── WHAT WE OFFER ── */
+.sd-offer-section {
+  padding: 2rem 0;
+  margin-bottom: 2.5rem;
+}
+
+.sd-offer-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #c5a059;
+  margin-bottom: 1.25rem;
+}
+
+.sd-offer-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
+}
+
+.sd-offer-card {
+  border: 1.5px solid #c5a059;
+  border-radius: 8px;
+  padding: 0.85rem 1.2rem;
+  font-size: 0.9rem;
+  color: #444;
+  background: #fff;
+}
+
+/* ── EXPLORE RELATED SERVICES ── */
+.sd-related-section {
+  background: #f0f0f0;
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  margin: 0 -2rem;
+}
+
+.sd-related-title {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #c5a059;
+  margin-bottom: 1.75rem;
+}
+
+.sd-related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.sd-related-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+}
+
+.sd-related-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.sd-related-img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  display: block;
+}
+
+.sd-related-body {
+  padding: 1rem 1rem 1.25rem;
+}
+
+.sd-related-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #c5a059;
+  margin-bottom: 0.4rem;
+}
+
+.sd-related-desc {
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .sd-hero {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .sd-hero-img-wrap {
+    justify-content: center;
+  }
+
+  .sd-hero-img {
+    max-width: 100%;
+    height: 220px;
+  }
+
+  .sd-offer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sd-related-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sd-related-section {
+    margin: 0 -1rem;
+    padding: 2rem 1rem;
+  }
+
+  .sd-back-btn {
+    top: 1rem;
+    right: 1rem;
+  }
+}

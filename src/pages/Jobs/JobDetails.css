@@ -1,0 +1,107 @@
+/* HERO */
+.job-hero {
+  position: relative;
+  height: 300px;
+}
+
+.job-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.job-hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* DETAILS */
+.job-details {
+  padding: 60px 10%;
+}
+
+.job-info {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+/* SECTION */
+.section {
+  margin-bottom: 25px;
+}
+
+.section h2 {
+  color: #b68a1f;
+  margin-bottom: 10px;
+}
+
+.section ul {
+  padding-left: 20px;
+}
+
+.section li {
+  margin-bottom: 8px;
+}
+
+/* BUTTON */
+.apply-btn {
+  background: #b68a1f;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* RELATED */
+.related-section {
+  padding: 40px 10%;
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.related-card {
+  text-decoration: none;
+  color: black;
+}
+
+.related-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.related-card h4 {
+  margin-top: 10px;
+  color: #b68a1f;
+  text-decoration: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .job-info {
+    flex-direction: column;
+  }
+
+  .related-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+Link
+{
+    text-decoration: none;
+}

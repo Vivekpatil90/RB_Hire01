@@ -1,0 +1,110 @@
+:root {
+  --primary-blue: #2563eb;
+  --primary-gold: #c9a441;
+  --gold-bg: #fdf8e6;
+  --text-dark: #1e293b;
+  --text-muted: #64748b;
+  --white: #ffffff;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.testimonials-section {
+  padding: 100px 5%;
+  background-color: #fcfcfc;
+  text-align: center;
+}
+
+.testimonials-header {
+  margin-bottom: 60px;
+}
+
+.testimonials-header .subtitle {
+  color: var(--primary-blue);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.testimonials-header .title {
+  color: var(--primary-gold);
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin: 15px 0;
+  font-weight: 700;
+}
+
+.testimonials-header .description {
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* --- Testimonial Cards Grid --- */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  background: var(--white);
+  padding: 40px;
+  border-radius: 20px;
+  text-align: left;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  min-height: 250px;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border-color: var(--gold-bg);
+}
+
+.quote-content p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 30px;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 20px;
+}
+
+.author-name {
+  color: var(--primary-blue);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.quote-icon {
+  font-size: 2.5rem;
+  color: var(--gold-bg);
+  line-height: 1;
+  font-family: serif;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  .testimonials-section {
+    padding: 60px 20px;
+  }
+
+  .testimonial-card {
+    padding: 30px;
+  }
+}

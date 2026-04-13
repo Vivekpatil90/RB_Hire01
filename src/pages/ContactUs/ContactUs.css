@@ -1,0 +1,156 @@
+/* SECTION */
+.contact-section {
+  padding: 80px 8%;
+  background: #f8fafc;
+  text-align: center;
+}
+
+/* TITLE */
+.contact-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #b68a1f;
+  margin-bottom: 10px;
+}
+
+.contact-subtitle {
+  color: #555;
+  font-size: 0.95rem;
+  max-width: 700px;
+  margin: 0 auto 50px;
+}
+
+/* CONTAINER */
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+/* LEFT */
+.contact-left,
+.contact-right {
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+
+  /* smooth animation */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.contact-left {
+  animation-delay: 0.2s;
+}
+.contact-right {
+  animation-delay: 0.3s;
+}
+
+/* HEADINGS */
+.contact-left h3,
+.contact-right h3 {
+  color: #b68a1f;
+  margin-bottom: 20px;
+}
+
+/* CONTACT CARD */
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  background: #f9fafb;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+
+  transition: transform 0.2s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-3px);
+}
+
+.contact-card span {
+  font-size: 1.5rem;
+  color: #b68a1f;
+}
+
+.contact-card h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.contact-card p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+/* FORM */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.contact-form textarea {
+  min-height: 120px;
+  resize: none;
+}
+
+/* BUTTON */
+.contact-form button {
+  background: #b68a1f;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  background: #9a731a;
+}
+
+/* ANIMATION */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .contact-title {
+    font-size: 2rem;
+  }
+
+  .contact-section {
+    padding: 60px 5%;
+  }
+}

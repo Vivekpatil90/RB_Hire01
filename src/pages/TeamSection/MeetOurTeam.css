@@ -1,0 +1,218 @@
+/* --- 1. Basic Setup & Theme Variables --- */
+:root {
+  --primary-title-color: #c9a441; /* The main gold/mustard color for titles */
+  --secondary-color: #2563eb;    /* The blue color for member names */
+  --text-main: #6b7280;          /* A warm grey for body text and roles */
+  --background-card: #ffffff;
+  --background-section: #f9fafb; /* A very light grey background for the whole section */
+  --box-shadow-card: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+  --box-shadow-card-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base styles to apply across your project for this section */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text-main);
+  background-color: var(--background-section);
+  line-height: 1.5;
+}
+
+/* --- 2. Main Section Styling --- */
+.our-team-section {
+  padding: 80px 20px;
+  text-align: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header-content {
+  margin-bottom: 60px;
+  /* Fade-in-Down animation for the header on load */
+  animation: fadeInDown 0.8s ease-out forwards;
+}
+
+.section-subtitle {
+  color: #2563eb; /* A bright blue, similar to the image's subtitle */
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  color: var(--primary-title-color);
+  font-size: clamp(2.2rem, 5vw, 3.2rem); /* Fluid typography: gets bigger on larger screens */
+  font-weight: 700;
+  margin: 0 0 15px 0;
+}
+
+.section-description {
+  color: var(--text-main);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* --- 3. The Grid and Cards (Responsive Layout) --- */
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  width: 100%;
+}
+
+.team-card {
+  background-color: var(--background-card);
+  border-radius: 12px;
+  box-shadow: var(--box-shadow-card);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-smooth);
+  /* The "Mobile-First" width: 100% on small screens */
+  width: 100%;
+}
+
+/* --- 4. Hover Animations for Cards --- */
+.team-card:hover {
+  transform: translateY(-10px) scale(1.02); /* Pop out and rise effect */
+  box-shadow: var(--box-shadow-card-hover);
+}
+
+/* The card's content structure */
+.image-container {
+  width: 100%;
+  aspect-ratio: 4 / 5; /* Creates a clean, standard aspect ratio for member photos */
+  overflow: hidden;
+}
+
+.member-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image fills the space without distortion */
+  transition: transform 0.5s ease; /* For a subtle zoom-on-hover effect */
+}
+
+/* A very modern, optional effect: the image zooms in slightly on card hover */
+.team-card:hover .member-image {
+  transform: scale(1.08);
+}
+
+.member-info {
+  padding: 30px;
+  text-align: center;
+}
+
+.member-name {
+  color: var(--secondary-color);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 5px 0;
+}
+
+.member-role {
+  color: var(--text-main);
+  font-size: 1rem;
+  margin: 0 0 20px 0;
+}
+
+/* --- 5. Social Icon Animations & Styling --- */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #e5e7eb; /* Subtle light grey outline */
+  transition: var(--transition-smooth);
+  color: var(--text-main); /* The icons themselves start in grey */
+}
+
+.social-icon:hover {
+  border-color: var(--secondary-color);
+  color: var(--secondary-color); /* On hover, icons turn blue */
+  background-color: #f1f5f9;
+  transform: translateY(-3px) scale(1.1); /* Icons get a little bounce on hover */
+}
+
+.icon-svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor; /* The SVG takes on the text color on hover */
+}
+
+/* --- 6. Entrance Animations (Fade-in-up) --- */
+.animated-card {
+  opacity: 0;
+  /* Animates up and fades in on page load */
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Staggered animation delay for each card (4 cards) to make it more professional */
+.team-card:nth-child(1) { animation-delay: 0.1s; }
+.team-card:nth-child(2) { animation-delay: 0.2s; }
+.team-card:nth-child(3) { animation-delay: 0.3s; }
+.team-card:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- 7. Responsive Breakpoints --- */
+
+/* Small Tablets and up (more than one card per row) */
+@media (min-width: 640px) {
+  .team-card {
+    width: calc(50% - 15px); /* 2 cards per row on small tablets */
+  }
+}
+
+/* Larger Tablets (3 cards per row) */
+@media (min-width: 992px) {
+  .team-card {
+    width: calc(33.333% - 20px); /* 3 cards per row on larger tablets */
+  }
+}
+
+/* Desktops (exactly like the original image with 4 cards per row) */
+@media (min-width: 1200px) {
+  .team-grid {
+    gap: 25px;
+  }
+  
+  .team-card {
+    width: calc(25% - 19px); /* 4 cards per row, with a cleaner calc for gap space */
+  }
+}
