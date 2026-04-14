@@ -133,7 +133,7 @@ const ServicePage = () => {
               <img src={service.img} alt={service.title} />
             </div>
             <div className="card-content">
-              <h3>{service.title}</h3>
+              <h3 className='service-heading'>{service.title}</h3>
               <p>{service.desc}</p>
             </div>
           </div>
