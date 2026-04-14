@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { FaLinkedin, FaInstagram } from "react-icons/fa";
 import { FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import heroBg from "../../assets/HeroBg.png";
+import herobgvid from "../../assets/HeroBG.mp4";
 const Hero = () => {
    const [isMenuOpen, setIsMenuOpen] = useState(false);
   
@@ -73,30 +74,37 @@ const Hero = () => {
     </header>
 
       {/* Hero Section */}
-  <section 
-  className="hero-container"
-  style={{ backgroundImage: `url(${heroBg})` }}
->
-   
-        <div className="hero-left">
-          <h1>
-            Connecting <span className="highlight">Talent</span><br />
-            with the <span className="highlight">Right Opportunities</span>
-          </h1>
-          <p className="hero-description">
-            RB Hires Consulting helps job seekers find meaningful careers and enables 
-            companies to hire skilled professionals across multiple industries with confidence.
-          </p>
-          <p className="hero-sub-description">
-            Our approach focuses on understanding people, roles, and company culture — 
-            ensuring <br />long-term success for both employers and job seekers.
-          </p>
-          <div className="cta-group">
-            <Link to="/contact" className="btn-primary">Contact Us</Link>
-            <Link to="/job" className="btn-secondary">Explore Jobs</Link>
-          </div>
-        </div>
-      </section>
+  <section className="hero-container">
+
+  {/* ✅ Background Video */}
+  <video autoPlay loop muted playsInline className="hero-video">
+    <source src={herobgvid} type="video/mp4" />
+  </video>
+
+  {/* CONTENT */}
+  <div className="hero-left">
+    <h1>
+      Connecting <span className="highlight">Talent</span><br />
+      with the <span className="highlight">Right Opportunities</span>
+    </h1>
+
+    <p className="hero-description">
+      RB Hires Consulting helps job seekers find meaningful careers and enables 
+      companies to hire skilled professionals across multiple industries with confidence.
+    </p>
+
+    <p className="hero-sub-description">
+      Our approach focuses on understanding people, roles, and company culture — 
+      ensuring <br />long-term success for both employers and job seekers.
+    </p>
+
+    <div className="cta-group">
+      <Link to="/contact" className="btn-primary">Contact Us</Link>
+      <Link to="/job" className="btn-secondary">Explore Jobs</Link>
+    </div>
+  </div>
+
+</section>
     </div>
   );
 };

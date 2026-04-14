@@ -1,5 +1,8 @@
 import React from 'react';
 import './Footer.css';
+import { FaLinkedin, FaInstagram } from "react-icons/fa";
+import { FaMapMarkerAlt, FaEnvelope, FaFacebookF, FaTwitter } from "react-icons/fa";
+import { FaPhoneAlt, } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
 const FooterPart = () => {
@@ -65,22 +68,22 @@ const FooterPart = () => {
           <div className="footer-col contact-col">
             <h3>Contact Us</h3>
             <div className="contact-item">
-              <i className="icon-map">📍</i>
+              <i className="icon-map"><FaMapMarkerAlt className="icon" /></i>
               <p>T-22, Golden Square, Radhanpur Road, Mehasana, India, 384002.</p>
             </div>
             <div className="contact-item">
-              <i className="icon-phone">📞</i>
+              <i className="icon-phone"><FaPhoneAlt className="icon" /></i>
               <p>+1 5067090710</p>
             </div>
             <div className="contact-item">
-              <i className="icon-mail">📧</i>
+              <i className="icon-mail"><FaEnvelope className="icon" /></i>
               <p>info@rbhires.com</p>
             </div>
             <div className="social-links">
-              <a href="#" className="social-icon">f</a>
-              <a href="#" className="social-icon">in</a>
-              <a href="#" className="social-icon">ig</a>
-              <a href="#" className="social-icon">t</a>
+              <a href="#" className="social-icon"><FaFacebookF className="icon" /></a>
+              <a href="#" className="social-icon"><FaLinkedin /></a>
+              <a href="#" className="social-icon"><FaInstagram /></a>
+              <a href="#" className="social-icon"><FaTwitter className="icon" /></a>
             </div>
           </div>
         </div>
