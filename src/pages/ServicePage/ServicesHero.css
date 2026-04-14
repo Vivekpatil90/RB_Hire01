@@ -176,13 +176,14 @@
 .card-content {
   padding: 16px;
   text-align: left;
-  margin-left: 18px;
+
 }
 
 .card-content h3 {
   color: #f59e0b;
   font-size: 1rem;
-  margin-bottom: 6px;
+  margin-left: 2px;
+
 }
 
 
@@ -190,7 +191,7 @@
   font-size: 0.8rem;
   color: #cbd5f5;
   line-height: 1.4;
-  margin-left: -28px;
+
 }
 
 /* ================= RESPONSIVE ================= */

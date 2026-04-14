@@ -2,6 +2,8 @@ import React from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import './ServiceDetail.css';
 import { useState } from 'react';
+import { FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
+import { FaLinkedin, FaInstagram } from 'react-icons/fa'; 
 
 const relatedServices = [
   {
@@ -91,12 +93,12 @@ const ServiceDetail = () => {
     
     <div className="top-bar">
             <div className="contact-info">
-              <div className="contact-item">📞 +1 5067090710</div>
-              <div className="contact-item">✉️ info@rbhires.com</div>
+              <div className="contact-item"><FaPhoneAlt className='icon' /> +1 5067090710</div>
+              <div className="contact-item"><FaEnvelope className='icon'  /> info@rbhires.com</div>
             </div>
             <div className="social-links">
-              <span>LinkedIn</span>
-              <span>Instagram</span>
+              <span className='link'><FaLinkedin /></span>
+              <span className='link'><FaInstagram /></span>
             </div>
           </div>
     
@@ -136,7 +138,7 @@ const ServiceDetail = () => {
             <Link to="/job" className="btn-apply">
                       Apply Jobs
                     </Link>
-            <div className="call-icon">📞</div>
+            <div className="call-icon"><FaPhoneAlt /></div>
           </div>
         </header>
           <section className="about-banner">

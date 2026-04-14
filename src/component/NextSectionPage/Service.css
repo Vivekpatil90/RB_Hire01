@@ -98,8 +98,8 @@
 }
 
 .btn-explore {
-  background: white;
-  color: #d97706;
+  background: black;
+  color: white;
   border: 1px solid #e2e8f0;
   padding: 14px 30px;
   border-radius: 6px;
@@ -109,7 +109,7 @@
 
 }
 .btn-explore:hover {
-  background: #000;
+  background: #d97706;
   color: white;
 }
 

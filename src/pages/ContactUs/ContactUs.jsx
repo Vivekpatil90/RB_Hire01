@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import './ContactUs.css'
 import { useState } from 'react'
 import { FaPhoneAlt, FaEnvelope, FaLinkedin, FaInstagram } from 'react-icons/fa';
+import { FaMapMarkerAlt } from 'react-icons/fa';
 
 const ContactUs = () => {
      const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -98,7 +99,7 @@ const ContactUs = () => {
           <h3>Contact Options</h3>
 
           <div className="contact-card">
-            <span>📞</span>
+            <span><FaPhoneAlt /></span>
             <div>
               <h4>Call Us</h4>
               <p>+1 5067090710</p>
@@ -106,7 +107,7 @@ const ContactUs = () => {
           </div>
 
           <div className="contact-card">
-            <span>✉️</span>
+            <span><FaEnvelope /></span>
             <div>
               <h4>Email Us</h4>
               <p>info@rbhires.com</p>
@@ -114,16 +115,16 @@ const ContactUs = () => {
           </div>
 
           <div className="contact-card">
-            <span>📍</span>
-            <div>
+            <span><FaMapMarkerAlt /></span>
+            <div className='india'>
               <h4>India Location</h4>
               <p>T-22, Golden Square, Mehasana, India</p>
             </div>
           </div>
 
           <div className="contact-card">
-            <span>📍</span>
-            <div>
+            <span><FaMapMarkerAlt /></span>
+            <div className='usa'>
               <h4>USA Location</h4>
               <p>Dover DE, 19901</p>
             </div>

@@ -1,8 +1,8 @@
 /* --- 1. Basic Setup & Theme Variables --- */
 :root {
-  --primary-title-color: #c9a441; /* The main gold/mustard color for titles */
-  --secondary-color: #2563eb;    /* The blue color for member names */
-  --text-main: #6b7280;          /* A warm grey for body text and roles */
+  --primary-title-color: #d79906; /* The main gold/mustard color for titles */
+  --secondary-color: #000;    /* The blue color for member names */
+  --text-main: #000;          /* A warm grey for body text and roles */
   --background-card: #ffffff;
   --background-section: #f9fafb; /* A very light grey background for the whole section */
   --box-shadow-card: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
@@ -38,7 +38,7 @@ body {
 }
 
 .section-subtitle {
-  color: #2563eb; /* A bright blue, similar to the image's subtitle */
+  color: #000; /* A bright blue, similar to the image's subtitle */
   font-weight: 700;
   font-size: 0.9rem;
   letter-spacing: 1px;

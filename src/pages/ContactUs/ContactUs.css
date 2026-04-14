@@ -110,6 +110,14 @@
   resize: none;
 }
 
+.india h4
+{
+  margin-left: -90px;
+}
+.usa h4
+{
+  margin-left: 15px;
+}
 /* BUTTON */
 .contact-form button {
   background: #d79906;

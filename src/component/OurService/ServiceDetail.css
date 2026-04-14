@@ -8,7 +8,11 @@
   position: relative;
   color: #333;
 }
-
+.link
+{
+  font-size: 20px;
+  margin: -5px;
+}
 /* Back button */
 .sd-back-btn {
   position: absolute;
@@ -49,14 +53,14 @@
 .sd-title {
   font-size: 2rem;
   font-weight: 700;
-  color: #c5a059;
+  color: #d79906;
   margin-bottom: 1rem;
 }
 
 .sd-para {
   font-size: 0.95rem;
   line-height: 1.7;
-  color: #555;
+  color: #000;
   margin-bottom: 0.85rem;
 }
 
@@ -64,7 +68,7 @@
   display: inline-block;
   margin-top: 0.75rem;
   padding: 0.6rem 1.4rem;
-  background: #c5a059;
+  background: #d79906;
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -75,7 +79,7 @@
 }
 
 .sd-contact-btn:hover {
-  background: #b08c44;
+  background: #d79906;
 }
 
 .sd-hero-img-wrap {
@@ -101,7 +105,7 @@
 .sd-offer-title {
   font-size: 1.4rem;
   font-weight: 700;
-  color: #c5a059;
+  color: #d79906;
   margin-bottom: 1.25rem;
 }
 
@@ -112,7 +116,7 @@
 }
 
 .sd-offer-card {
-  border: 1.5px solid #c5a059;
+  border: 1.5px solid #d79906;
   border-radius: 8px;
   padding: 0.85rem 1.2rem;
   font-size: 0.9rem;

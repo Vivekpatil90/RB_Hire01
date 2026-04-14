@@ -2,14 +2,26 @@ import React from 'react'
 import { Link } from 'react-router-dom' 
 import './refer.css'
 import { useState } from 'react'
+import { useRef} from "react";
 import { FaPhoneAlt, FaEnvelope, FaLinkedin, FaInstagram } from 'react-icons/fa';
 
 const Refer = () => {
        const [isMenuOpen, setIsMenuOpen] = useState(false);
-    
+       const [showForm, setShowForm] = useState(false);
+      const formRef = useRef(null);
       const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
       };
+      const scrollToForm = () => {
+  setShowForm(true); // 👈 show form first
+
+  setTimeout(() => {
+    formRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }, 100); // slight delay to render
+};
   return (
     <>
         <div className="top-bar">
@@ -52,11 +64,6 @@ const Refer = () => {
         <li onClick={() => setIsMenuOpen(false)}><Link to="/gallery">Gallery</Link></li>
         <li onClick={() => setIsMenuOpen(false)}><Link to="/refer-earn">Refer & Earn</Link></li>
         <li onClick={() => setIsMenuOpen(false)}><Link to="/contact">Contact Us</Link></li>
-        
-        {/* Mobile-only CTA (Optional, but looks good in sidebars) */}
-        {/* <li className="mobile-cta">
-          <button className="btn-apply">Apply Jobs</button>
-        </li> */}
       </ul>
 
       <div className="header-actions hide-mobile">
@@ -99,7 +106,9 @@ const Refer = () => {
         <div className="step-card">
           <h3>Step 1 Refer Us</h3>
           <p>Share the details of a person who is looking for a job.</p>
-          <button className="primary-btn">Share Details</button>
+     <button className="primary-btn" onClick={scrollToForm}>
+  Share Details
+</button>
         </div>
 
         {/* Step 2 */}
@@ -112,12 +121,49 @@ const Refer = () => {
         <div className="step-card">
           <h3>Step 3 Get Bonus</h3>
           <p>Earn referral bonus when the candidate enrolls successfully.</p>
-          <button className="primary-btn">Join Referral Program</button>
+  <button className="primary-btn" onClick={scrollToForm}>
+  Join Referral Program
+</button>
           <span className="terms">*Terms & Conditions Apply</span>
         </div>
 
       </div>
     </section>
+    {showForm && (
+    <section className="referral-form-section" ref={formRef}>
+        <div className="form-container">
+
+          {/* LEFT */}
+          <div className="form-left">
+            <h2>
+              Join Our <span>Referral Program</span>
+            </h2>
+            <p>Refer candidates and earn rewards.</p>
+
+            <img
+              src="https://rb-hires.vercel.app/images/home/refer.webp"
+              alt=""
+            />
+          </div>
+
+          {/* RIGHT */}
+          <div className="form-right">
+            <h3>Referral Details</h3>
+
+            <input type="text" placeholder="Your Name" />
+            <input type="email" placeholder="Your Email" />
+            <input type="text" placeholder="Your Phone" />
+
+            <input type="text" placeholder="Referral Name" />
+            <input type="email" placeholder="Referral Email" />
+            <input type="text" placeholder="Referral Phone" />
+
+            <button className="submit-btn">Submit Referral</button>
+          </div>
+
+        </div>
+      </section>
+      )}
     </>
   )
 }

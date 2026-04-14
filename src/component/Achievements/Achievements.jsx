@@ -1,53 +1,95 @@
-import React, { useEffect, useState } from 'react';
-import './Achievements.css';
+import React, { useEffect, useRef, useState } from "react";
+import "./Achievements.css";
 
-const StatCard = ({ target, label, suffix = "+" }) => {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    let start = 0;
-    const duration = 2000; // 2 seconds
-    const increment = target / (duration / 16); // 60fps approx
-
-    const timer = setInterval(() => {
-      start += increment;
-      if (start >= target) {
-        setCount(target);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(start));
-      }
-    }, 16);
-
-    return () => clearInterval(timer);
-  }, [target]);
-
-  return (
-    <div className="stat-card">
-      <div className="stat-number">
-        {count}{suffix}
-      </div>
-      <div className="stat-label">{label}</div>
-    </div>
-  );
-};
+const statsData = [
+  { number: 700, suffix: "+", label: "Successful Placements" },
+  { number: 500, suffix: "+", label: "Happy Clients" },
+  { number: 25, suffix: "+", label: "Industries Served" },
+  { number: 5, suffix: "+", label: "Years of Experience" },
+];
 
 const Achievements = () => {
+  const cardsRef = useRef([]);
+  const [counts, setCounts] = useState(statsData.map(() => 0));
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = cardsRef.current.indexOf(entry.target);
+
+            entry.target.classList.add("show");
+
+            // 🔥 Start counting animation
+            startCounting(index);
+
+            observer.unobserve(entry.target); // run only once
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    cardsRef.current.forEach((card) => {
+      if (card) observer.observe(card);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const startCounting = (index) => {
+    let start = 0;
+    const end = statsData[index].number;
+    const duration = 1500;
+    const incrementTime = 20;
+    const step = Math.ceil(end / (duration / incrementTime));
+
+    const counter = setInterval(() => {
+      start += step;
+
+      if (start >= end) {
+        start = end;
+        clearInterval(counter);
+      }
+
+      setCounts((prev) => {
+        const updated = [...prev];
+        updated[index] = start;
+        return updated;
+      });
+    }, incrementTime);
+  };
+
   return (
     <section className="achievements-section">
-      <div className="container">
-        <div className="achievements-header">
-          <span className="accent-text">OUR MILESTONES</span>
-          <h2>Numbers That Define Excellence</h2>
-          <p>Global reach and proven impact across the recruitment landscape.</p>
-        </div>
+      {/* Header */}
+      <div className="achievements-header">
+        <span className="accent-text">OUR ACHIEVEMENTS</span>
+        <h2>We Deliver Results That Matter</h2>
+        <p>
+          Our track record speaks for itself — helping businesses grow and
+          candidates find the right opportunities.
+        </p>
+      </div>
 
-        <div className="stats-grid">
-          <StatCard target={700} label="Successful Placements" />
-          <StatCard target={500} label="Happy Clients" />
-          <StatCard target={25} label="Industries Served" />
-          <StatCard target={5} label="Years of Experience" />
-        </div>
+      {/* Stats */}
+      <div className="stats-grid">
+        {statsData.map((item, index) => (
+          <div
+            key={index}
+            ref={(el) => (cardsRef.current[index] = el)}
+            className={`stat-card ${
+              index % 2 === 0 ? "from-left" : "from-right"
+            }`}
+          >
+            <h3 className="stat-number">
+              {counts[index]}
+              {item.suffix}
+            </h3>
+            <p className="stat-label">{item.label}</p>
+          </div>
+        ))}
       </div>
     </section>
   );
