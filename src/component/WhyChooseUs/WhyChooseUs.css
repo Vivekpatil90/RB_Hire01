@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
 
 :root {
-  --primary: #4f46e5;
+  --primary: #d79906;
   --bg-color: #f8fafc;
-  --text-dark: #0f172a;
+  --text-dark: #000;
   --line-color: #e2e8f0;
 }
 
@@ -31,6 +31,7 @@
   color: var(--text-dark);
   margin: 10px 0;
   font-weight: 800;
+  color: #000;
 }
 
 /* Timeline Container */
@@ -115,6 +116,7 @@
   margin-bottom: 10px;
   color: var(--text-dark);
   font-size: 1.25rem;
+  color: #000;
 }
 
 .timeline-content p {

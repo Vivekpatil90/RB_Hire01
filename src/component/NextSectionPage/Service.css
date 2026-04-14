@@ -108,6 +108,10 @@
   text-decoration: none;
 
 }
+.btn-explore:hover {
+  background: #000;
+  color: white;
+}
 
 /* --- Animation Trigger Classes --- */
 .slide-in-right {

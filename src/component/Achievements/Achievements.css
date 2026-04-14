@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap');
 
 :root {
-  --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  /* --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); */
+  --primary-gradient:#000;
   --soft-bg: #fdfdff;
-  --text-dark: #1e1b4b;
+  --text-dark: white;
 }
 
 .achievements-section {
@@ -35,7 +36,7 @@
 .accent-text {
   font-weight: 700;
   letter-spacing: 2px;
-  color: #6366f1;
+  color: #d79906;
   font-size: 0.85rem;
 }
 
@@ -44,6 +45,7 @@
   color: var(--text-dark);
   margin: 15px 0;
   font-weight: 800;
+  color: #000;
 }
 
 .achievements-header p {

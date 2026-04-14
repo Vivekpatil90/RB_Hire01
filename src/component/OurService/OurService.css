@@ -1,6 +1,9 @@
+/* 1. Global Variables & Setup */
 :root {
-  --primary-gold: #c5a059;
-  --transition-speed: 0.5s;
+  --primary-gold: #d97706;
+  --text-gold: #d79906;
+  --transition-speed: 0.7s;
+  --transition-curve: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .services-container {
@@ -11,84 +14,151 @@
   text-align: center;
 }
 
-.header h2 {
-  color: var(--primary-gold);
+/* 2. Header Styles */
+.services-container .header h2 {
+  color: var(--text-gold);
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
 }
 
 .header p {
-  color: #666;
+  color: #333;
   margin-bottom: 3rem;
 }
 
+/* 3. Gallery Layout */
 .gallery {
   display: flex;
-  gap: 1rem;
-  height: 450px;
+  gap: 1.2rem;
+  height: 480px;
   width: 100%;
+  perspective: 1000px; /* Adds subtle depth */
 }
 
+/* 4. Card Styling & Sliding Logic */
 .card {
   position: relative;
-  flex: 1; /* Default width */
+  flex: 1;
   background-size: cover;
-  background-position: center;
-  border-radius: 15px;
+  border-radius: 20px;
   cursor: pointer;
   overflow: hidden;
-  transition: flex var(--transition-speed) ease-in-out;
   display: flex;
   align-items: flex-end;
-  padding: 20px;
+  padding: 25px;
   color: white;
+  
+  /* Smooth transition for both width (flex) and image position */
+  transition: 
+    flex var(--transition-speed) var(--transition-curve),
+    background-position var(--transition-speed) var(--transition-curve),
+    filter 0.3s ease;
+    
+  /* Default state: slightly dimmed */
+  filter: brightness(0.9);
 }
 
-/* Hover Effect: Increase width */
+/* Odd cards: Image slides in from the LEFT */
+.card:nth-child(odd) {
+  background-position: 20% center;
+}
+
+/* Even cards: Image slides in from the RIGHT */
+.card:nth-child(even) {
+  background-position: 80% center;
+}
+
+/* Active State: Expand and center image */
 .card.active {
-  flex: 3;
+  flex: 4;
+  background-position: center !important;
+  filter: brightness(1.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
+/* Dark overlay for text readability */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top, 
+    rgba(0, 0, 0, 0.8) 0%, 
+    rgba(0, 0, 0, 0.2) 50%,
+    transparent 100%
+  );
+  z-index: 1;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.card.active::before {
+  opacity: 1;
+}
+
+/* 5. Content Styling */
 .card-content {
+  position: relative;
   text-align: left;
   z-index: 2;
   width: 100%;
 }
 
 .card-content h3 {
-  font-size: 1.25rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-  white-space: nowrap;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #fff;
+  /* Gold accent on title when active */
+  transition: color 0.3s ease;
+  margin-left: -31px;
+}
+
+.card.active h3 {
+  color: var(--primary-gold);
 }
 
 .fade-in {
-  animation: fadeIn 0.4s forwards;
+  animation: fadeIn 0.5s forwards;
   font-size: 0.95rem;
-  line-height: 1.4;
+  line-height: 1.5;
   opacity: 0;
+  color: #e5e5e5;
+  margin-left: -31px;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { 
+    opacity: 0; 
+    transform: translateX(-15px); /* Slides text in horizontally */
+  }
+  to { 
+    opacity: 1; 
+    transform: translateX(0); 
+  }
 }
 
-/* Responsive: Stack vertically on small screens */
+/* 6. Responsive Design */
 @media (max-width: 768px) {
   .gallery {
     flex-direction: column;
     height: auto;
+    gap: 1rem;
   }
   
   .card {
-    height: 150px;
+    height: 180px;
     flex: none;
     width: 100%;
+    background-position: center !important; /* Center images on mobile */
   }
   
   .card.active {
-    height: 250px;
+    height: 300px;
     flex: none;
+  }
+  
+  .services-container .header h2 {
+    font-size: 2rem;
   }
 }

@@ -7,12 +7,7 @@ const FooterPart = () => {
     <div className="landing-container">
       {/* Hero Section */}
       <section className="hero-section">
-        <div className="hero-content">
-          {/* <div className="hero-image-left">
-            <img src="https://static.vecteezy.com/system/resources/thumbnails/038/962/461/small_2x/ai-generated-caucasian-successful-confident-young-businesswoman-ceo-boss-bank-employee-worker-manager-with-arms-crossed-in-formal-wear-isolated-in-white-background-photo.jpg" alt="Recruiter" />
-            <div className="badge">FIND JOBS HERE</div>
-          </div> */}
-          
+        <div className="hero-content">          
           <div className="hero-text">
             <h1>Ready to Build Your Dream Career?</h1>
             <p>Partner with us to find the right talent faster and more efficiently. Let's build success together.</p>

@@ -191,8 +191,8 @@
 
 /* ================= REFER SECTION ================= */
 .refer-section {
-  background: #000;
-  color: white;
+  background: white;
+  color: black;
   padding: 80px 5%;
   text-align: center;
 }
@@ -238,7 +238,7 @@
 
 .step-card p {
   font-size: 0.9rem;
-  color: #cbd5f5;
+  color: #000;
   margin-bottom: 15px;
 }
 

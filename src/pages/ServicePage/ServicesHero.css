@@ -113,6 +113,7 @@
   background: linear-gradient(135deg, #0f172a, #020617);
   color: white;
   text-align: center;
+  background: white;
 }
 
 /* TITLE */
@@ -124,7 +125,7 @@
 }
 
 .services-subtitle {
-  color: #cbd5f5;
+  color: #000;
   margin-bottom: 40px;
   font-size: 0.9rem;
 }

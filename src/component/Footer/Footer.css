@@ -22,6 +22,7 @@ body {
   overflow: hidden;
   min-height: 500px;
   display: flex;
+  background: white;
   align-items: center;
 }
 
@@ -47,12 +48,14 @@ body {
   margin-bottom: 20px;
   font-weight: 700;
   letter-spacing: -0.5px;
+  color: #000;
 }
 
 .hero-text p {
   color: var(--text-gray);
   margin-bottom: 35px;
   font-size: 1.1rem;
+  color: #050505;
 }
 
 .hero-btns {
@@ -67,7 +70,7 @@ body {
 }
 
 .btn-primary {
-  background: var(--primary-gold);
+  background: #d79906;
   border: none;
   padding: 14px 32px;
   border-radius: 8px;
@@ -77,7 +80,7 @@ body {
 }
 
 .btn-primary:hover {
-  background: #b38f36;
+  background: #d79906;
   transform: translateY(-2px);
 }
 
@@ -90,11 +93,12 @@ body {
   cursor: pointer;
   transition: var(--transition);
   text-decoration: none;
+  color: #000;
 }
 
 .btn-outline:hover {
-  background: var(--white);
-  color: var(--dark-bg);
+  background: black;
+  color: white;
 }
 
 /* --- Hero Images Handling --- */

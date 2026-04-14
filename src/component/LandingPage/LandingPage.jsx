@@ -2,7 +2,9 @@ import React from 'react';
 import './LandingPage.css';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-
+import { FaLinkedin, FaInstagram } from "react-icons/fa";
+import { FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import heroBg from "../../assets/HeroBg.png";
 const Hero = () => {
    const [isMenuOpen, setIsMenuOpen] = useState(false);
   
@@ -14,13 +16,24 @@ const Hero = () => {
       {/* Top Bar */}
       <div className="top-bar">
         <div className="contact-info">
-          <div className="contact-item">📞 +1 5067090710</div>
-          <div className="contact-item">✉️ info@rbhires.com</div>
-        </div>
+  <div className="contact-item">
+    <FaPhoneAlt className="icon" />
+    <span>+1 5067090710</span>
+  </div>
+
+  <div className="contact-item">
+    <FaEnvelope className="icon" />
+    <span>info@rbhires.com</span>
+  </div>
+</div>
         <div className="social-links">
-          <span>LinkedIn</span>
-          <span>Instagram</span>
-        </div>
+  <a href="https://linkedin.com" target="_blank" rel="noreferrer">
+    <FaLinkedin />
+  </a>
+  <a href="https://instagram.com" target="_blank" rel="noreferrer">
+    <FaInstagram />
+  </a>
+</div>
       </div>
 
       {/* Navbar */}
@@ -48,11 +61,6 @@ const Hero = () => {
         <li onClick={() => setIsMenuOpen(false)}><Link to="/gallery">Gallery</Link></li>
         <li onClick={() => setIsMenuOpen(false)}><Link to="/refer-earn">Refer & Earn</Link></li>
         <li onClick={() => setIsMenuOpen(false)}><Link to="/contact">Contact Us</Link></li>
-        
-        {/* Mobile-only CTA (Optional, but looks good in sidebars) */}
-        {/* <li className="mobile-cta">
-          <button className="btn-apply">Apply Jobs</button>
-        </li> */}
       </ul>
 
       <div className="header-actions hide-mobile">
@@ -60,12 +68,16 @@ const Hero = () => {
         <Link to="/job" className="btn-apply">
           Apply Jobs
         </Link>
-        <div className="call-icon">📞</div>
+        <div className="call-icon"><FaPhoneAlt className="icon" /></div>
       </div>
     </header>
 
       {/* Hero Section */}
-      <section className="hero-container">
+  <section 
+  className="hero-container"
+  style={{ backgroundImage: `url(${heroBg})` }}
+>
+   
         <div className="hero-left">
           <h1>
             Connecting <span className="highlight">Talent</span><br />
@@ -77,21 +89,11 @@ const Hero = () => {
           </p>
           <p className="hero-sub-description">
             Our approach focuses on understanding people, roles, and company culture — 
-            ensuring long-term success for both employers and job seekers.
+            ensuring <br />long-term success for both employers and job seekers.
           </p>
           <div className="cta-group">
             <Link to="/contact" className="btn-primary">Contact Us</Link>
             <Link to="/job" className="btn-secondary">Explore Jobs</Link>
-          </div>
-        </div>
-
-        <div className="hero-right">
-          <div className="image-card">
-            {/* Using a placeholder professional image */}
-            <img 
-              src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&q=80" 
-              alt="Professional Career" 
-            />
           </div>
         </div>
       </section>
