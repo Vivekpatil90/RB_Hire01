@@ -102,6 +102,7 @@
   text-align: left;
   z-index: 2;
   width: 100%;
+   
 }
 
 .card-content h3 {
@@ -111,20 +112,23 @@
   color: #fff;
   /* Gold accent on title when active */
   transition: color 0.3s ease;
-  margin-left: -31px;
+  margin-left: -45px;
 }
 
 .card.active h3 {
   color: var(--primary-gold);
 }
-
+.card-content .fade-in
+{
+  margin-left: -45px;
+}
 .fade-in {
   animation: fadeIn 0.5s forwards;
   font-size: 0.95rem;
   line-height: 1.5;
   opacity: 0;
-  color: #e5e5e5;
-  margin-left: -31px;
+  color: white;
+  margin-left: -90px;
 }
 
 @keyframes fadeIn {

@@ -44,7 +44,7 @@ const Services = () => {
             <div className="card-content">
               <h3>{service.title}</h3>
               {hoveredId === service.id && (
-                <p className="fade-in">{service.desc}</p>
+                     <p className="fade-in">{service.desc}</p>
               )}
             </div>
           </Link>
