@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './ContactUs.css'
 import { useState } from 'react'
+import { FaPhoneAlt, FaEnvelope, FaLinkedin, FaInstagram } from 'react-icons/fa';
 
 const ContactUs = () => {
      const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,12 +14,16 @@ const ContactUs = () => {
     <>
        <div className="top-bar">
         <div className="contact-info">
-          <div className="contact-item">📞 +1 5067090710</div>
-          <div className="contact-item">✉️ info@rbhires.com</div>
+          <div className="contact-item"><FaPhoneAlt className="icon" /> +1 5067090710</div>
+          <div className="contact-item"><FaEnvelope className="icon" /> info@rbhires.com</div>
         </div>
         <div className="social-links">
-          <span>LinkedIn</span>
-          <span>Instagram</span>
+          <a href="https://linkedin.com" target="_blank" rel="noreferrer">
+            <FaLinkedin />
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noreferrer">
+            <FaInstagram />
+          </a>
         </div>
       </div>
 
@@ -58,7 +63,9 @@ const ContactUs = () => {
        <Link to="/job" className="btn-apply">
                  Apply Jobs
                </Link>
-        <div className="call-icon">📞</div>
+        <div className="call-icon">
+          <FaPhoneAlt />
+        </div>
       </div>
     </header>
       <section className="about-banner">

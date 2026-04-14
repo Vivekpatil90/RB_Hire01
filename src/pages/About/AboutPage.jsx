@@ -1,6 +1,8 @@
 {/* <div class="absolute inset-0 bg-cover bg-center" style="background-image: url(&quot;/images/logo/breadcrumb-bg.png&quot;);"></div> */}
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import { FaLinkedin, FaInstagram } from "react-icons/fa";
 import './AboutPage.css'
 import Achievements from '../../component/Achievements/Achievements'
 import OurService from '../../component/OurService/OurService'
@@ -21,12 +23,16 @@ const AboutPage = () => {
     <>
     <div className="top-bar">
         <div className="contact-info">
-          <div className="contact-item">📞 +1 5067090710</div>
-          <div className="contact-item">✉️ info@rbhires.com</div>
+          <div className="contact-item"><FaPhoneAlt className="icon" /> +1 5067090710</div>
+          <div className="contact-item"><FaEnvelope className="icon" /> info@rbhires.com</div>
         </div>
         <div className="social-links">
-          <span>LinkedIn</span>
-          <span>Instagram</span>
+          <a href="https://linkedin.com" target="_blank" rel="noreferrer">
+            <FaLinkedin />
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noreferrer">
+            <FaInstagram />
+          </a>
         </div>
       </div>
 
@@ -66,7 +72,7 @@ const AboutPage = () => {
         <Link to="/job" className="btn-apply">
                   Apply Jobs
                 </Link>
-        <div className="call-icon">📞</div>
+        <div className="call-icon"><FaPhoneAlt className="icon" /></div>
       </div>
     </header>
       <section className="about-banner">
