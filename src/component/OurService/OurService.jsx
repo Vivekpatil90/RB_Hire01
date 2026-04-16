@@ -12,6 +12,12 @@ const services = [
 ];
 
 const Services = () => {
+    const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+};
   const [hoveredId, setHoveredId] = useState(null);
      const [isMenuOpen, setIsMenuOpen] = useState(false);
     
@@ -30,7 +36,7 @@ const Services = () => {
 
       <div className="gallery">
         {services.map((service) => (
-          <Link
+          <Link onClick={scrollToTop}
             to={`/service/${service.id}`}
             key={service.id}
             className={`card ${hoveredId === service.id ? 'active' : ''}`}

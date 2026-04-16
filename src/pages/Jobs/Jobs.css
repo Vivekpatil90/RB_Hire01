@@ -1,4 +1,31 @@
 /* SECTION */
+.cursor-dot {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: #d97706;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+.cursor-outline {
+  position: fixed;
+  width: 35px;
+  height: 35px;
+  border: 2px solid #d97706;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* OPTIONAL: HIDE DEFAULT CURSOR */
+body {
+  cursor: none;
+}
+
 .jobs-section {
   padding: 80px 8%;
   background: #f8fafc;
@@ -43,7 +70,16 @@
   border: none;
   cursor: pointer;
 }
-
+.icon
+{
+  font-size: 20px;
+  margin-top: -10px;
+}
+.social
+{
+  margin-right: 0px;
+  margin-top: 3px;
+}
 /* GRID */
 .jobs-grid {
   display: grid;
@@ -59,7 +95,32 @@
   text-decoration: none;
 
   transition: transform 0.25s ease;
+
+  /* 🔥 NEW */
+  opacity: 0;
+  transform: translateX(60px);
 }
+.job-card:nth-child(even) {
+  transform: translateX(-60px);
+}
+
+/* Odd cards → from RIGHT */
+.job-card:nth-child(odd) {
+  transform: translateX(60px);
+}
+.job-card.show {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.job-card.show:nth-child(1) { transition-delay: 0.1s; }
+.job-card.show:nth-child(2) { transition-delay: 0.2s; }
+.job-card.show:nth-child(3) { transition-delay: 0.3s; }
+.job-card.show:nth-child(4) { transition-delay: 0.4s; }
+.job-card.show:nth-child(5) { transition-delay: 0.5s; }
+.job-card.show:nth-child(6) { transition-delay: 0.6s; }
+.job-card.show:nth-child(7) { transition-delay: 0.7s; }
+.job-card.show:nth-child(8) { transition-delay: 0.8s; }
 
 .job-card:hover {
   transform: translateY(-5px);

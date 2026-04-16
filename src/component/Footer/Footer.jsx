@@ -6,6 +6,12 @@ import { FaPhoneAlt, } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
 const FooterPart = () => {
+  const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+};
   return (
     <div className="landing-container">
       {/* Hero Section */}
@@ -15,9 +21,13 @@ const FooterPart = () => {
             <h1>Ready to Build Your Dream Career?</h1>
             <p>Partner with us to find the right talent faster and more efficiently. Let's build success together.</p>
             <div className="hero-btns">
-              <Link  className="btn-primary" to='/contact'>Contact Us</Link>
-              
-              <Link className='btn-outline' to='/job'>View Open Position</Link>
+<Link className="btn-primary" to="/contact" onClick={scrollToTop}>
+  Contact Us
+</Link>
+
+<Link className="btn-outline" to="/job" onClick={scrollToTop}>
+  View Open Position
+</Link>
             </div>
           </div>
 
@@ -44,11 +54,11 @@ const FooterPart = () => {
           <div className="footer-col">
             <h3>Quick Links</h3>
             <ul>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/about">About Us</Link></li>
-              <li><Link to="/services">Services</Link></li>
-              <li><Link to="/job">Jobs</Link></li>
-              <li><Link to="/contact">Contact</Link></li>
+     <li><Link to="/" onClick={scrollToTop}>Home</Link></li>
+<li><Link to="/about" onClick={scrollToTop}>About Us</Link></li>
+<li><Link to="/services" onClick={scrollToTop}>Services</Link></li>
+<li><Link to="/job" onClick={scrollToTop}>Jobs</Link></li>
+<li><Link to="/contact" onClick={scrollToTop}>Contact</Link></li>
             </ul>
           </div>
 
@@ -56,11 +66,11 @@ const FooterPart = () => {
           <div className="footer-col">
             <h3>Job Roles</h3>
             <ul>
-              <li><Link to='/'>IT & Software</Link></li>
-              <li><Link to='/about'>Sales & Marketing</Link></li>
-              <li><Link to='/services'>Human Resources</Link></li>
-              <li><Link to='/job'>Finance & Accounts</Link></li>
-              <li><Link to='/contact'>Operations</Link></li>
+              <li><Link to='/' onClick={scrollToTop}>IT & Software</Link></li>
+              <li><Link to='/about' onClick={scrollToTop}>Sales & Marketing</Link></li>
+              <li><Link to='/services' onClick={scrollToTop}>Human Resources</Link></li>
+              <li><Link to='/job' onClick={scrollToTop}>Finance & Accounts</Link></li>
+              <li><Link to='/contact' onClick={scrollToTop}>Operations</Link></li>
             </ul>
           </div>
 

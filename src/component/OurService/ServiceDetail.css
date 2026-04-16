@@ -76,6 +76,7 @@
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s;
+  text-decoration: none;
 }
 
 .sd-contact-btn:hover {

@@ -13,6 +13,36 @@
   overflow: hidden;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+html {
+  scroll-behavior: smooth;
+}
+.cursor-dot {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: #d97706;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+.cursor-outline {
+  position: fixed;
+  width: 35px;
+  height: 35px;
+  border: 2px solid #d97706;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* OPTIONAL: HIDE DEFAULT CURSOR */
+body {
+  cursor: none;
+}
+
 
 /* Dark Overlay to make text pop */
 .hero-overlay {
@@ -145,15 +175,44 @@
   border: 1px solid rgba(255,255,255,0.06);
 
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-  will-change: transform; /* ✅ smooth GPU */
+
+  /* 🔥 NEW: initial hidden state */
+  opacity: 0;
+  transform: translateX(60px);
 }
 
+/* Even cards → from LEFT */
+.service-card:nth-child(even) {
+  transform: translateX(-60px);
+}
+
+/* Odd cards → from RIGHT */
+.service-card:nth-child(odd) {
+  transform: translateX(60px);
+}
+.service-card.show {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.service-card.show:nth-child(1) { transition-delay: 0.1s; }
+.service-card.show:nth-child(2) { transition-delay: 0.2s; }
+.service-card.show:nth-child(3) { transition-delay: 0.3s; }
+.service-card.show:nth-child(4) { transition-delay: 0.4s; }
+.service-card.show:nth-child(5) { transition-delay: 0.5s; }
+.service-card.show:nth-child(6) { transition-delay: 0.6s; }
+.service-card.show:nth-child(7) { transition-delay: 0.7s; }
+.service-card.show:nth-child(8) { transition-delay: 0.8s; }
 /* HOVER (lightweight) */
 .service-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 6px 18px rgba(0,0,0,0.25);
 }
 
+.service-heading
+{
+  margin-left: 50px;
+}
 /* IMAGE */
 .image-wrapper {
   height: 150px;
@@ -173,25 +232,23 @@
 }
 
 /* CONTENT */
-.card-content {
+.card-context {
   padding: 16px;
   text-align: left;
 
 }
 
-.card-content h3 {
+.card-context h3 {
   color: #f59e0b;
   font-size: 1rem;
-  margin-left: 2px;
 
 }
 
 
-.card-content p {
+.card-context p {
   font-size: 0.8rem;
   color: #cbd5f5;
   line-height: 1.4;
-
 }
 
 /* ================= RESPONSIVE ================= */

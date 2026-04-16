@@ -3,6 +3,12 @@ import './Service.css';
 import { Link } from 'react-router-dom';
 
 const AboutSection = () => {
+    const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+};
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
@@ -57,8 +63,8 @@ const AboutSection = () => {
 
           <div className="about-cta">
 
-            <Link to="/contact" className="btn-contact">Contact Us</Link>
-            <Link to="/job" className="btn-explore">Explore Jobs</Link>
+            <Link to="/contact" onClick={scrollToTop} className="btn-contact">Contact Us</Link>
+            <Link to="/job" onClick={scrollToTop} className="btn-explore">Explore Jobs</Link>
           </div>
         </div>
 

@@ -99,46 +99,50 @@
 /* 5. Content Styling */
 .card-content {
   position: relative;
-  text-align: left;
   z-index: 2;
   width: 100%;
-   
-}
+  text-align: left;
 
+}
+/* Title */
 .card-content h3 {
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 8px;
   color: #fff;
-  /* Gold accent on title when active */
   transition: color 0.3s ease;
-  margin-left: -45px;
+
+  
+}
+.card-content h3,
+.fade-in {
+  padding-left: 0;
 }
 
+/* Active Title */
 .card.active h3 {
   color: var(--primary-gold);
 }
-.card-content .fade-in
-{
-  margin-left: -45px;
-}
+
+/* Description */
 .fade-in {
   animation: fadeIn 0.5s forwards;
   font-size: 0.95rem;
-  line-height: 1.5;
+  line-height: 1.6;
   opacity: 0;
   color: white;
-  margin-left: -90px;
+  max-width: 90%;
 }
 
+/* Animation */
 @keyframes fadeIn {
   from { 
     opacity: 0; 
-    transform: translateX(-15px); /* Slides text in horizontally */
+    transform: translateY(10px); /* smoother vertical animation */
   }
   to { 
     opacity: 1; 
-    transform: translateX(0); 
+    transform: translateY(0); 
   }
 }
 

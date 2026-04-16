@@ -39,6 +39,10 @@
   margin-top: 4px;
   margin-right: -5px;
 }
+.icon{
+  height: 15px;
+  margin-top: -10px;
+}
 
 
 .contact-info {
@@ -75,11 +79,11 @@
   font-size: 22px;
   color: #fff;
   transition: 0.3s ease;
-  margin-bottom: 21px;
+  margin-bottom: 24px;
 }
 
 .social-links a:hover {
-  color: #00bcd4; /* change to your theme color */
+  color: #d97706; /* change to your theme color */
   transform: scale(1.2);
 }
 
@@ -100,7 +104,33 @@ header
   top: 0;
   z-index: 1000;
 }
+/* CURSOR DOT */
+.cursor-dot {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: #d97706;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+.cursor-outline {
+  position: fixed;
+  width: 35px;
+  height: 35px;
+  border: 2px solid #d97706;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
 
+/* OPTIONAL: HIDE DEFAULT CURSOR */
+body {
+  cursor: none;
+}
 /* NAV LINKS */
 .nav-links {
   display: flex;

@@ -1,4 +1,31 @@
 /* HERO */
+/* SECTION */
+.cursor-dot {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: #d97706;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+.cursor-outline {
+  position: fixed;
+  width: 35px;
+  height: 35px;
+  border: 2px solid #d97706;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* OPTIONAL: HIDE DEFAULT CURSOR */
+body {
+  cursor: none;
+}
 .job-hero {
   position: relative;
   height: 300px;
@@ -26,20 +53,28 @@
 .job-details {
   padding: 60px 10%;
 }
+.social
+{
+  color: #d79906;
+}
 
 .job-info {
   display: flex;
   gap: 30px;
   margin-bottom: 30px;
 }
-
+.righticon
+{
+  /* height: 20px; */
+  gap:10px;
+}
 /* SECTION */
 .section {
   margin-bottom: 25px;
 }
 
 .section h2 {
-  color: #b68a1f;
+  color: #d79906;
   margin-bottom: 10px;
 }
 
@@ -53,7 +88,7 @@
 
 /* BUTTON */
 .apply-btn {
-  background: #b68a1f;
+  background: #d79906;
   color: white;
   padding: 12px 25px;
   border: none;
@@ -86,7 +121,7 @@
 
 .related-card h4 {
   margin-top: 10px;
-  color: #b68a1f;
+  color: #d79906;
   text-decoration: none;
 }
 

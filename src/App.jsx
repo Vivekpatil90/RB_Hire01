@@ -22,7 +22,9 @@ import ServiceDetail from './component/OurService/ServiceDetail'
 
 const App = () => {
   return (
+    
     <div>
+      
       <Routes>
         <Route path='/' element=
         {

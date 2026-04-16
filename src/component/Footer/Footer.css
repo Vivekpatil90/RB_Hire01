@@ -25,7 +25,9 @@ body {
   background: white;
   align-items: center;
 }
-
+.hero-btns a {
+  text-decoration: none;
+}
 .hero-content {
   display: flex;
   align-items: flex-end; /* Aligns people to the bottom of the hero area */
@@ -93,11 +95,14 @@ body {
   cursor: pointer;
   transition: var(--transition);
   text-decoration: none;
-  color: #000;
+  color: white;
+  
+  background-color: #000;
+
 }
 
 .btn-outline:hover {
-  background: black;
+  background: #d79906;
   color: white;
 }
 

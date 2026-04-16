@@ -3,6 +3,7 @@ import './ServicesHero.css'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { FaPhoneAlt, FaEnvelope, FaLinkedin, FaInstagram } from 'react-icons/fa';
+import { useEffect } from "react";
 const services = [
   {
     title: "Expert Advice",
@@ -48,13 +49,83 @@ const services = [
 
 const ServicePage = () => {
    const [isMenuOpen, setIsMenuOpen] = useState(false);
+   useEffect(() => {
+  const cards = document.querySelectorAll(".service-card");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  cards.forEach((card) => observer.observe(card));
+}, []);
   
     const toggleMenu = () => {
       setIsMenuOpen(!isMenuOpen);
     };
+      useEffect(() => {
+      const dot = document.querySelector(".cursor-dot");        // small fast dot
+      const outline = document.querySelector(".cursor-outline"); // big smooth circle
+    
+      let mouseX = 0;
+      let mouseY = 0;
+    
+      let outlineX = 0;
+      let outlineY = 0;
+    
+      const speed = 0.08; // lower = more delay (smoother)
+    
+      const animate = () => {
+        // big circle follows slowly (lag effect)
+        outlineX += (mouseX - outlineX) * speed;
+        outlineY += (mouseY - outlineY) * speed;
+    
+        outline.style.left = outlineX + "px";
+        outline.style.top = outlineY + "px";
+    
+        requestAnimationFrame(animate);
+      };
+    
+      window.addEventListener("mousemove", (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    
+        // small dot sticks exactly to cursor
+        dot.style.left = mouseX + "px";
+        dot.style.top = mouseY + "px";
+      });
+    
+      animate();
+    
+    }, []);
+    useEffect(() => {
+      const outline = document.querySelector(".cursor-outline");
+    
+      const hoverElements = document.querySelectorAll("a, button, .btn-primary, .btn-secondary");
+    
+      hoverElements.forEach((el) => {
+        el.addEventListener("mouseenter", () => {
+          outline.style.transform = "translate(-50%, -50%) scale(1.8)";
+          outline.style.background = "rgba(217, 119, 6, 0.1)";
+        });
+    
+        el.addEventListener("mouseleave", () => {
+          outline.style.transform = "translate(-50%, -50%) scale(1)";
+          outline.style.background = "transparent";
+        });
+      });
+    }, []);
   return (
       <>
        <div className="top-bar">
+      <div className="cursor-dot"></div>
+<div className="cursor-outline"></div>
         <div className="contact-info">
           <div className="contact-item"><FaPhoneAlt className="icon" /> +1 5067090710</div>
           <div className="contact-item"><FaEnvelope className="icon" /> info@rbhires.com</div>
@@ -133,11 +204,12 @@ const ServicePage = () => {
 
       <div className="services-grid">
         {services.map((service, index) => (
+          
           <div className="service-card" key={index}>
             <div className="image-wrapper">
               <img src={service.img} alt={service.title} />
             </div>
-            <div className="card-content">
+            <div className="card-context">
               <h3 className='service-heading'>{service.title}</h3>
               <p>{service.desc}</p>
             </div>

@@ -2,6 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import "./Jobs.css";
 import { useState } from "react";
+import { FaInstagram, FaLinkedin, FaPhoneAlt } from 'react-icons/fa';
+import { FaEnvelope } from 'react-icons/fa';
+import { useEffect } from "react";
 const jobsData = [
   {
     title: "Frontend Developer",
@@ -62,17 +65,86 @@ const Jobs = () => {
     setCity("");
     setState("");
   };
+  useEffect(() => {
+  const cards = document.querySelectorAll(".job-card");
 
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  cards.forEach((card) => observer.observe(card));
+}, [])  
+  useEffect(() => {
+  const dot = document.querySelector(".cursor-dot");        // small fast dot
+  const outline = document.querySelector(".cursor-outline"); // big smooth circle
+
+  let mouseX = 0;
+  let mouseY = 0;
+
+  let outlineX = 0;
+  let outlineY = 0;
+
+  const speed = 0.08; // lower = more delay (smoother)
+
+  const animate = () => {
+    // big circle follows slowly (lag effect)
+    outlineX += (mouseX - outlineX) * speed;
+    outlineY += (mouseY - outlineY) * speed;
+
+    outline.style.left = outlineX + "px";
+    outline.style.top = outlineY + "px";
+
+    requestAnimationFrame(animate);
+  };
+
+  window.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    // small dot sticks exactly to cursor
+    dot.style.left = mouseX + "px";
+    dot.style.top = mouseY + "px";
+  });
+
+  animate();
+
+}, []);
+useEffect(() => {
+  const outline = document.querySelector(".cursor-outline");
+
+  const hoverElements = document.querySelectorAll("a, button, .btn-primary, .btn-secondary");
+
+  hoverElements.forEach((el) => {
+    el.addEventListener("mouseenter", () => {
+      outline.style.transform = "translate(-50%, -50%) scale(1.8)";
+      outline.style.background = "rgba(217, 119, 6, 0.1)";
+    });
+
+    el.addEventListener("mouseleave", () => {
+      outline.style.transform = "translate(-50%, -50%) scale(1)";
+      outline.style.background = "transparent";
+    });
+  });
+}, []);
   return (
     <>
     <div className="top-bar">
+                <div className="cursor-dot"></div>
+<div className="cursor-outline"></div>
         <div className="contact-info">
-          <div className="contact-item">📞 +1 5067090710</div>
-          <div className="contact-item">✉️ info@rbhires.com</div>
+          <div className="contact-item"><FaPhoneAlt className='social'/> +1 5067090710</div>
+          <div className="contact-item"><FaEnvelope className='social'/> info@rbhires.com</div>
         </div>
         <div className="social-links">
-          <span>LinkedIn</span>
-          <span>Instagram</span>
+          <span className='icon'><FaLinkedin/></span>
+          <span className='icon'><FaInstagram/></span>
         </div>
       </div>
 
@@ -110,7 +182,7 @@ const Jobs = () => {
 
       <div className="header-actions hide-mobile">
         <button className="btn-apply">Apply Jobs</button>
-        <div className="call-icon">📞</div>
+        <div className="call-icon"><FaPhoneAlt className=''/></div>
       </div>
     </header>
       <section className="about-banner">

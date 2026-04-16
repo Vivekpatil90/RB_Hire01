@@ -83,6 +83,12 @@ const ServiceDetail = () => {
   const navigate = useNavigate();
   const detail = serviceDetails[Number(id)] || serviceDetails[1];
    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+};
   
     const toggleMenu = () => {
       setIsMenuOpen(!isMenuOpen);
@@ -166,7 +172,8 @@ const ServiceDetail = () => {
           <h2 className="sd-title">{detail.title}</h2>
           <p className="sd-para">{detail.para1}</p>
           <p className="sd-para">{detail.para2}</p>
-          <button className="sd-contact-btn">Contact Us</button>
+          {/* <button className="sd-contact-btn">Contact Us</button> */}
+          <Link to='/contact' onClick={scrollToTop} className='sd-contact-btn'>Contact Us</Link>
         </div>
         <div className="sd-hero-img-wrap">
           <img src={detail.img} alt={detail.title} className="sd-hero-img" />
