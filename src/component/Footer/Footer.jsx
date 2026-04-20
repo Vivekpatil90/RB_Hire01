@@ -68,7 +68,7 @@ const FooterPart = () => {
             <ul>
               <li><Link to='/' onClick={scrollToTop}>IT & Software</Link></li>
               <li><Link to='/about' onClick={scrollToTop}>Sales & Marketing</Link></li>
-              <li><Link to='/services' onClick={scrollToTop}>Human Resources</Link></li>
+              <li><Link to='/servicepart' onClick={scrollToTop}>Human Resources</Link></li>
               <li><Link to='/job' onClick={scrollToTop}>Finance & Accounts</Link></li>
               <li><Link to='/contact' onClick={scrollToTop}>Operations</Link></li>
             </ul>

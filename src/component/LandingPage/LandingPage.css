@@ -627,3 +627,15 @@ body {
   z-index: 1;
   color: #fff;
 }
+/* ===== DISABLE CUSTOM CURSOR ON MOBILE ===== */
+@media (max-width: 768px) {
+
+  body {
+    cursor: auto; /* restore default */
+  }
+
+  .cursor-dot,
+  .cursor-outline {
+    display: none !important;
+  }
+}
